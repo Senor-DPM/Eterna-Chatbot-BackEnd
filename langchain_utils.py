@@ -8,14 +8,16 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.schema import Document
 from langchain.prompts import ChatPromptTemplate
+import getpass
 
+key = getpass.getpass()
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 os.environ["LANGCHAIN_API_KEY"] = "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"
 os.environ['LANGCHAIN_PROJECT'] = "My First Chatbot"
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = key
 
-llm = ChatOpenAI(api_key="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", model="gpt-4o-mini")
+llm = ChatOpenAI(api_key=key, model="gpt-4o-mini")
 DATA_PATH = "database"
 CHROMA_PATH = "ChromaDatabases"
 
